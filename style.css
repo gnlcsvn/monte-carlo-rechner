@@ -1,0 +1,393 @@
+/* 
+Define the Averta fonts: Regular and Bold 
+These are used throughout the site for consistency.
+*/
+@font-face {
+    font-family: 'Averta';
+    src: url('fonts/Averta-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Averta';
+    src: url('fonts/Averta-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* General Styles */
+body {
+    font-family: 'Averta', Arial, sans-serif;
+    background-color: #fff; /* White background */
+    color: #333; /* Text color */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+/* 
+Header Section: 
+Fixed header with a blurred background effect for a modern look.
+*/
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensure it stays above other elements */
+}
+
+.header-container {
+    width: 100%;
+    backdrop-filter: blur(8px); /* Apply blur effect */
+    -webkit-backdrop-filter: blur(8px); /* Safari support */
+    background-color: #ffffffb3; /* Semi-transparent background */
+    padding-top: 20px;
+}
+
+/* Navigation Bar Styles */
+.navbar {
+    background-color: #4d6bdd; /* Dark blue background */
+    display: flex;
+    justify-content: space-between; /* Distribute items evenly */
+    align-items: center; /* Vertically center items */
+    margin: 0 20px;
+    padding: 5px 20px;
+    border-radius: 10px; /* Rounded corners */
+}
+
+/* Brand Link Styles */
+.nav-brand a {
+    color: #fff; /* White text */
+    font-size: 24px; /* Large font size */
+    font-weight: normal; /* Use Averta-Bold */
+    text-decoration: none; /* No underline */
+}
+
+/* Navigation Menu Styles */
+.nav-menu {
+    list-style: none; /* Remove bullets */
+    display: flex;
+    gap: 20px; /* Space between menu items */
+}
+
+/* Menu Item Styles */
+.nav-menu li {
+    display: inline; /* Items are displayed in a row */
+}
+
+/* Menu Links */
+.nav-menu a {
+    color: #fff; /* White text */
+    text-decoration: none; /* No underline */
+    font-size: 16px; /* Standard font size */
+    font-weight: normal; /* Use Averta-Regular */
+}
+
+/* Button in the Navigation Menu */
+.nav-menu .login-btn {
+    background-color: #fdd835; /* Bright yellow button */
+    padding: 8px 16px; /* Button padding */
+    border-radius: 5px; /* Rounded corners */
+    color: #333; /* Dark text for contrast */
+    font-weight: bold;
+}
+
+.nav-menu .login-btn:hover {
+    background-color: #fbc02d; /* Hover effect: darken yellow */
+}
+
+/* Main Container Styles */
+.container {
+    max-width: 1000px; /* Limit container width */
+    margin: 100px auto 20px; /* Center content and adjust for header */
+    padding: 20px;
+}
+
+/* Intro Section Styles */
+.intro-section {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+/* Heading in Intro Section */
+.intro-section h1 {
+    color: #15284B; /* Dark blue text */
+    font-size: 48px;
+    font-weight: bold; /* Use Averta-Bold */
+    margin: 0;
+}
+
+/* Paragraph in Intro Section */
+.intro-section p {
+    color: #333;
+    font-size: 20px;
+    line-height: 1.5; /* Increased line spacing */
+}
+
+/* Tool Section Styling (Form Section) */
+.tool-section {
+    background-color: #f9f9fa; /* Light grey background */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners */
+    border: 1px solid #f0f0f2; /* Light grey border */
+}
+
+.tool-section h2 {
+    color: #15284B;
+    font-weight: bold; /* Use Averta-Bold */
+    margin-top: 0;
+}
+
+/* Form Styles */
+form {
+    margin-bottom: 20px; /* Spacing at the bottom */
+}
+
+/* Form Group (Each Input + Label) */
+.form-group {
+    margin-bottom: 25px;
+    text-align: left;
+    font-size: 18px;
+}
+
+/* Form Labels */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold; /* Use Averta-Bold */
+}
+
+/* Input Fields */
+input[type="number"] {
+    width: 100%; /* Full width */
+    padding: 8px;
+    box-sizing: border-box;
+    font-family: 'Averta', Arial, sans-serif;
+    font-weight: normal; /* Use Averta-Regular */
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 18px;
+}
+
+/* 
+Remove Number Input Spinners: 
+Hides the default number increment buttons.
+*/
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none; /* Chrome, Safari, Edge */
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield; /* Firefox */
+}
+
+/* Submit Button Styling */
+button {
+    background-color: #4d6bdd;
+    color: #fff; /* White text */
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 5px; /* Rounded corners */
+    font-family: 'Averta', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+button:hover {
+    background-color: #3c59a1; /* Darker shade on hover */
+}
+
+/* Results Section Styling */
+#results-section {
+    display: none; /* Hidden by default */
+}
+
+.results-section {
+    margin-top: 30px;
+    font-size: 18px;
+    padding: 20px;
+    background-color: #fff; /* White background */
+    border: 1px solid #f0f0f2; /* Grey border */
+    border-radius: 8px; /* Rounded corners */
+}
+
+.results-section h2 {
+    color: #15284B;
+    font-weight: bold; /* Use Averta-Bold */
+    margin-top: 0;
+}
+
+/* Chart Canvas Styling */
+canvas {
+    margin-top: 20px;
+}
+
+/* Tooltip Icon Styling */
+.tooltip-icon {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 8px;
+}
+
+.tooltip-icon .question-mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #edf0fc; /* Light blue background */
+    border: 1px solid #dbdff0; /* Light grey border */
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    font-size: 14px;
+    color: #4d6bdd; /* Dark blue text */
+    font-weight: bold;
+}
+
+/* Tooltip Text Styling */
+.tooltip-icon .tooltip-text {
+    visibility: hidden; /* Hidden by default */
+    width: 250px;
+    background-color: #FFFFFF;
+    color: #757E91; /* Grey text */
+    text-align: left;
+    border-radius: 6px;
+    border: 1px solid #dbdff0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Position above the icon */
+    left: 50%;
+    margin-left: -125px; /* Center align tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 14px;
+}
+
+/* Tooltip Arrow */
+.tooltip-icon .tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%; /* Arrow at the bottom of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #FFFFFF transparent transparent transparent;
+}
+
+/* Tooltip Show on Hover */
+.tooltip-icon:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* General Styling for Explanation Section */
+.output-section {
+    margin-top: 30px;
+}
+
+.output-section hr {
+    margin: 50px 0;
+    background-color: #e8eaed; /* Light grey */
+    height: 2px;
+    border: none;
+}
+
+.output-section h2 {
+    color: #15284B;
+    font-weight: bold;
+    margin-top: 40px;
+    font-size: 26px;
+    line-height: 34px;
+}
+
+.output-section a {
+    color: #4560c7; /* Link color */
+}
+
+.output-section p {
+    color: #333;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Footer Styling */
+.footer {
+    background-color: #edf0fc; /* Light blue background */
+    color: #4d6bdd; /* Dark blue text */
+    text-align: center;
+    padding: 5px 5px;
+    margin-top: 40px;
+    border-radius: 10px; /* Rounded corners */
+}
+
+.footer a {
+    color: #4d6bdd; /* Dark blue link color */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* Prevent Horizontal Scrolling */
+html, body {
+    overflow-x: hidden;
+}
+
+/* Mobile Styles: Adjustments for Small Screens */
+@media only screen and (max-width: 768px) {
+
+    /* Adjust navbar for mobile */
+    header {
+        position: relative;
+        margin: 0;
+    }
+
+    .navbar {
+        padding: 20px 10px;
+    }
+
+    .nav-menu {
+        display: none; /* Hide the navigation menu on mobile */
+    }
+
+    /* Ensure container is full width */
+    .container {
+        margin: 10px auto 20px;
+        padding: 20px;
+        max-width: 100%; /* Full width on mobile */
+        box-sizing: border-box; /* Include padding in width */
+    }
+
+    /* Smaller Heading for Mobile */
+    .intro-section h1 {
+        font-size: 32px;
+        margin-top: 0;
+    }
+
+    /* Adjust paragraph size for mobile */
+    .intro-section p {
+        font-size: 18px;
+    }
+
+    /* Responsive Chart on Mobile */
+    canvas#chart {
+        width: 100%;
+        height: 300px; /* Adjust height for mobile */
+    }
+
+    /* Full-Width Inputs and Button on Mobile */
+    form input[type="number"],
+    form button {
+        width: 100%;
+    }
+}

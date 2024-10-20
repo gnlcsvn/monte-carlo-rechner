@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <!-- Meta Data and Title -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monte-Carlo-Simulationsrechner</title>
+    
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header Section with Navigation Bar -->
+    <header>
+        <div class="header-container">
+            <nav class="navbar">
+                <!-- Brand Name -->
+                <div class="nav-brand">
+                    <a href="#">Community-Rechner</a>
+                </div>
+                <!-- Navigation Menu -->
+                <ul class="nav-menu">
+                    <li><a href="https://www.finanzfluss.de/rechner/">Offizielle Finanzfluss Rechner</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <div class="container">
+        <!-- Introductory Section for Explaining the Purpose -->
+        <section class="intro-section">
+            <h1>Monte-Carlo-Simulationsrechner</h1>
+            <p>
+                Wer sich Gedanken über die Zukunft seines Vermögens macht und wissen möchte, ob es den gewünschten Lebensstandard langfristig sichern kann, sollte die Unsicherheiten der Marktentwicklung berücksichtigen. Unser Monte-Carlo-Simulationsrechner hilft dir dabei. Mit ihm kannst du anhand zufälliger Marktentwicklungen simulieren, wie sich dein Portfolio in verschiedenen Szenarien entwickelt. So erhältst du eine fundierte Einschätzung darüber, wie lange dein Vermögen voraussichtlich reicht und welche Risiken bestehen, dass es vorzeitig aufgebraucht wird.
+            </p>
+        </section>
+
+        <!-- Form Section for Inputting Parameters -->
+        <section class="tool-section">
+            <form id="simulationForm">
+                <h2>💰 Monte-Carlo-Simulation </h2>
+                <!-- Input Fields for the Simulation Parameters -->
+                <div class="form-group">
+                    <label for="initialCapital">Anfangsvermögen (€):</label>
+                    <input type="number" id="initialCapital" value="100000" required>
+                </div>
+                <div class="form-group">
+                    <label for="annualContribution">Jährliche Sparrate (€):</label>
+                    <input type="number" id="annualContribution" value="5000" required>
+                </div>
+                <div class="form-group">
+                    <label for="annualWithdrawal">Jährliche Entnahmerate (€):</label>
+                    <input type="number" id="annualWithdrawal" value="5000" required>
+                </div>
+                <div class="form-group">
+                    <label for="meanReturn">Erwartete jährliche Rendite (%):</label>
+                    <input type="number" id="meanReturn" step="0.01" value="7" required>
+                </div>
+                <div class="form-group">
+                    <label for="stdDevReturn">Jährliche Volatilität (%):</label>
+                    <input type="number" id="stdDevReturn" step="0.01" value="15" required>
+                </div>
+                <div class="form-group">
+                    <label for="years">Betrachtungszeitraum (Jahre):</label>
+                    <input type="number" id="years" value="30" required>
+                </div>
+                <div class="form-group">
+                    <label for="iterations">Anzahl der Iterationen:</label>
+                    <input type="number" id="iterations" value="10000" required>
+                </div>
+                <!-- Submit Button -->
+                <button type="submit">Berechnen</button>
+            </form>
+        </section>
+
+        <!-- Results Section for Displaying the Simulation Output -->
+        <section id="results-section" class="results-section">
+            <h2>🧮 Berechnung</h2>
+            <!-- Dynamic Sentence with Simulation Results -->
+            <p id="resultsSentence"></p>
+            <p>Erfolgsrate: <span id="successRate"></span>%</p>
+
+            <!-- Displaying Percentiles with Tooltips -->
+            <p>10. Perzentil: <span id="p10"></span>€
+                <span class="tooltip-icon">
+                    <span class="question-mark">?</span>
+                    <span class="tooltip-text">In 10% der Simulationen liegt das Endvermögen unter diesem Wert. Es ist der pessimistischste Bereich des möglichen Ergebnisses.</span>
+                </span>
+            </p>
+            <p>50. Perzentil (Median): <span id="p50"></span>€
+                <span class="tooltip-icon">
+                    <span class="question-mark">?</span>
+                    <span class="tooltip-text">In 50% der Simulationen liegt das Endvermögen über und in 50% unter diesem Wert. Dies stellt den mittleren oder typischen Fall dar.</span>
+                </span>
+            </p>
+            <p>90. Perzentil: <span id="p90"></span>€
+                <span class="tooltip-icon">
+                    <span class="question-mark">?</span>
+                    <span class="tooltip-text">In 90% der Simulationen liegt das Endvermögen unter diesem Wert. Dies zeigt das beste Ergebnis von 10% der Simulationen.</span>
+                </span>
+            </p>
+
+            <!-- Canvas Element for Chart Display -->
+            <canvas id="chart"></canvas>
+        </section>
+
+        <!-- Output Section with Additional Explanations -->
+        <div id="output-section" class="output-section">
+            <hr>
+
+            <!-- Explanation of Monte-Carlo Simulation -->
+            <section id="monte-carlo-explanation" class="explanation-section">
+                <h2>Was ist eine Monte-Carlo-Simulation?</h2>
+                <p>
+                    Eine Monte-Carlo-Simulation ist eine Methode, um die Unsicherheiten bei der zukünftigen Entwicklung eines Portfolios zu simulieren. Anders als bei herkömmlichen, linearen Berechnungen berücksichtigt die Monte-Carlo-Simulation die Variabilität der Renditen in jedem Jahr und ermittelt, wie wahrscheinlich es ist, dass das Vermögen im Laufe der Zeit aufgebraucht wird oder erhalten bleibt.
+                </p>
+                <p>
+                    Im Kontext der Finanzplanung werden dabei hunderte oder tausende mögliche Szenarien für die zukünftige Wertentwicklung eines Portfolios simuliert, basierend auf erwarteten Renditen und deren Schwankungsbreite (Volatilität). Dadurch können wir ein genaueres Bild davon gewinnen, wie sich unser Vermögen unter verschiedenen Marktentwicklungen verhält. Diese Methode stellt auch eine Möglichkeit dar, das <a target="_blank" href="https://www.finanzfluss.de/geldanlage/entnahmestrategien/#welche-risiken-gibt-es">Renditereihenfolge-Risiko</a> besser einzuschätzen, also das Risiko, dass die Reihenfolge der Renditen einen signifikanten Einfluss auf das Endergebnis haben kann.
+                </p>
+            </section>
+
+            <!-- Explanation of Simulation Results -->
+            <section id="ergebnis-erklaert" class="explanation-section">
+                <h2>Ergebnis erklärt</h2>
+                <p>
+                    Monte-Carlo-Simulationen werden häufig zur Berechnung einer nachhaltigen Entnahmerate verwendet. Ein Beispiel: Wenn wir von einem <strong>Anfangsvermögen</strong> von <strong>100.000€</strong> ausgehen, einer <strong>jährlichen Entnahmerate</strong> von <strong>4.000€</strong>, einer erwarteten <strong>Rendite</strong> von <strong>5%</strong> und einer <strong>Volatilität</strong> von <strong>15%</strong> über einen Zeitraum von <strong>30 Jahren</strong>, kann die Monte-Carlo-Simulation zeigen, wie wahrscheinlich es ist, dass das Vermögen nicht aufgebraucht wird. Natürlich kann auch eine Sparrate berechnet werden; bei einer Entnahmerate von 0€ wird ein Portfolio dann logischerweise nie auf 0€ fallen.
+                </p>
+                <p>
+                    Das 50. Perzentil gibt an, dass das Vermögen in der Hälfte der simulierten Fälle über einem bestimmten Wert liegt, während das 10. und 90. Perzentil uns einen Eindruck von den Extremen geben – also wie das Vermögen in den schlechtesten bzw. besten 10% der Fälle abschneiden würde.
+                </p>
+            </section>
+
+            <!-- Information on Expected Return and Volatility -->
+            <section id="important-info" class="explanation-section">
+                <h2>Wichtig: Erwartete Rendite und Volatilität</h2>
+                <p>
+                    Die Wahl der erwarteten <strong>Rendite</strong> und <strong>Volatilität</strong> ist entscheidend für die Genauigkeit der Simulation. Eine zu optimistische Rendite könnte dazu führen, dass dein Entnahmeplan nicht nachhaltig ist, wenn die tatsächlichen Marktrenditen hinter den Erwartungen zurückbleiben. Eine hohe Volatilität wiederum zeigt, dass es in manchen Jahren zu starken Schwankungen kommen kann, was sich negativ auf die Nachhaltigkeit des Portfolios auswirken könnte.
+                </p>
+                <p>
+                    Es ist ratsam, konservative Werte zu wählen und historische Daten heranzuziehen, wie etwa die Renditen und Volatilitäten gängiger Indizes wie dem <a target="_blank" href="https://www.finanzfluss.de/etf-handbuch/risiken-reduzieren/#langfristig-stabile-rendite">MSCI World Index</a>. Natürlich sind vergangenen Renditen keine Garantie für die zukünftige Wertentwicklung, sie geben dir jedoch eine realistischere Einschätzung darüber, was in der Zukunft möglich ist.
+                </p>
+            </section>
+        </div>
+
+        <!-- Footer Section with Creator Information -->
+        <footer class="footer">
+            <p>Erstellt von <a href="https://www.gianlucasavino.com" target="_blank">Gian-Luca</a></p>
+        </footer>
+    </div>
+
+    <!-- Link to External JS File for Simulation Logic -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

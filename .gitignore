@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# macOS Finder
+__MACOSX
+
+# Thumbnails
+._*
+
+# Files that might appear when mounting a volume
+.Spotlight-V100
+.Trashes
